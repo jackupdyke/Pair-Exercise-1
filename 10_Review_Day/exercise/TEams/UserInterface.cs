@@ -8,10 +8,15 @@ namespace TEams
     {
 
 
+
+        List<Department> departments = new List<Department>();
+            
+
+
         public void Run()
         {
             // create some departments
-            CreateDepartments();
+               CreateDepartments();
 
             // print each department by name
             PrintDepartments();
@@ -23,7 +28,7 @@ namespace TEams
 
 
             // print all employees
-            PrintEmployees();
+            PrintEmployees(); 
 
             // create the TEams project
             CreateTeamsProject();
@@ -38,8 +43,17 @@ namespace TEams
         /**
          * Create departments and add them to the collection of departments
          */
+
+        
+
+
+
+        
         private void CreateDepartments()
         {
+            Department department1 = new Department(1, "Marketing");
+            departments.Add(department1);
+            
 
         }
 
