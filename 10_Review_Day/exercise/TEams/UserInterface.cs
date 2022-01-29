@@ -6,10 +6,10 @@ namespace TEams
 {
     class UserInterface
     {
+        Department departments = 0;
 
 
-
-        List<Department> departments = new List<Department>();
+        List<Department> departmentList = new List<Department>();
             
 
 
@@ -52,9 +52,11 @@ namespace TEams
         private void CreateDepartments()
         {
             Department department1 = new Department(1, "Marketing");
-            departments.Add(department1);
-            
-
+            departmentList.Add(department1);
+            Department department2 = new Department(2, "Sales");
+            departmentList.Add(department2);
+            Department department3 = new Department(3, "Engineering");
+            departmentList.Add(department3);
         }
 
         /**
@@ -63,6 +65,8 @@ namespace TEams
         private void PrintDepartments()
         {
             Console.WriteLine("------------- DEPARTMENTS ------------------------------");
+
+            Console.WriteLine(departmentList);
 
         }
 
