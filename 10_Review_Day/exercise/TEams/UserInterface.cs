@@ -26,6 +26,8 @@ namespace TEams
             CreateEmployees();
 
             // give Angie a 10% raise, she is doing a great job!
+            employeeList[1].RaiseSalary(10);
+            
 
 
             // print all employees
@@ -90,15 +92,20 @@ namespace TEams
             employee1.LastName = "Johnson";
             employee1.Email = "djohnson@teams.com";
             employee1.Salary = 60000;
-            Console.Write(employee1);
+            employee1.Department = departmentList[2];
+            employee1.HireDate = "08/21/2020";
+            employeeList.Add(employee1);
 
 
+            Employee employee2 = new Employee(2, "Angie", "Smith", "asmith@teams.com", departmentList[2], "08/21/20" );
 
-            
-                
-         
+            employeeList.Add(employee2);
+           
+            Employee employee3 = new Employee(3, "Margaret", "Thompson", "mthompson@teams.com", departmentList[0], "08/21/20");
 
-            Employee employee2 = new Employee(2, "Angie", "Smith", "asmith@teams.com",);
+            employeeList.Add(employee3);
+
+
 
 
 
@@ -112,6 +119,10 @@ namespace TEams
         {
             Console.WriteLine("\n------------- EMPLOYEES ------------------------------");
 
+            foreach (Employee employee in employeeList)
+            {
+                Console.WriteLine(employee.FullName + " " + employee.Salary + " " + employee.Department.Name);
+            }
         }
 
         /**
