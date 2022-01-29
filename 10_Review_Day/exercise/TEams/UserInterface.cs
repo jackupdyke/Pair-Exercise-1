@@ -6,11 +6,12 @@ namespace TEams
 {
     class UserInterface
     {
-        Department departments = 0;
+        Department departments;
 
 
         List<Department> departmentList = new List<Department>();
-            
+        List<Employee> employeeList = new List<Employee>();
+
 
 
         public void Run()
@@ -66,7 +67,14 @@ namespace TEams
         {
             Console.WriteLine("------------- DEPARTMENTS ------------------------------");
 
-            Console.WriteLine(departmentList);
+            foreach (Department department in departmentList)
+            {
+                Console.WriteLine(department.Name);
+            }
+
+
+            
+               
 
         }
 
@@ -75,6 +83,25 @@ namespace TEams
          */
         private void CreateEmployees()
         {
+            Employee employee1 = new Employee();
+
+            employee1.EmployeeId = 1;
+            employee1.FirstName = "Dean";
+            employee1.LastName = "Johnson";
+            employee1.Email = "djohnson@teams.com";
+            employee1.Salary = 60000;
+            Console.Write(employee1);
+
+
+
+            
+                
+         
+
+            Employee employee2 = new Employee(2, "Angie", "Smith", "asmith@teams.com",);
+
+
+
 
         }
 
