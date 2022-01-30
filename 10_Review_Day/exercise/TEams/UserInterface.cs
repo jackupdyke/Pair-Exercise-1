@@ -182,12 +182,11 @@ namespace TEams
         private void PrintProjectsReport()
         {
             Console.WriteLine("\n------------- PROJECTS ------------------------------");
-            foreach (string projectName in projects.Keys)
+            foreach (KeyValuePair<string,Project> projectName in projects)
             {
-                if (projects.ContainsKey(projectName)) 
-                {
-                    Console.WriteLine(projectName + ":" + projects.Values.Count);
-                }
+                
+            Console.WriteLine(projectName.Key + ":" + projectName.Value.TeamMembers.Count);
+                
                 
                 
                
