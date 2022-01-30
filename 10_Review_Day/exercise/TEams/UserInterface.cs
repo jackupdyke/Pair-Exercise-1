@@ -11,11 +11,15 @@ namespace TEams
 
         List<Department> departmentList = new List<Department>();
         List<Employee> employeeList = new List<Employee>();
+        Dictionary<string, Project> projects = new Dictionary<string, Project>();
+        
 
 
 
         public void Run()
         {
+
+
             // create some departments
                CreateDepartments();
 
@@ -26,15 +30,17 @@ namespace TEams
             CreateEmployees();
 
             // give Angie a 10% raise, she is doing a great job!
-            employeeList[1].RaiseSalary(10);
-            
+            Employee angie = employeeList[1];
+            angie.RaiseSalary(10);
 
+            
 
             // print all employees
             PrintEmployees(); 
 
             // create the TEams project
             CreateTeamsProject();
+            
 
             // create the Marketing Landing Page Project
             CreateLandingPageProject();
@@ -128,17 +134,46 @@ namespace TEams
         /**
          * Create the 'TEams' project.
          */
+
         private void CreateTeamsProject()
         {
+            Project project1 = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
+
+            List<Employee> engineers = new List<Employee>();
+
+            engineers.Add(employeeList[0]);
+            engineers.Add(employeeList[1]);
+
+            //project1.TeamMembers.Add(employeeList[0]);
+            //project1.TeamMembers.Add(employeeList[1]);
+
+            project1.TeamMembers = engineers;
+
+            projects.Add("TEams", project1);
 
         }
 
         /**
          * Create the 'Marketing Landing Page' project.
          */
+
+
         private void CreateLandingPageProject()
         {
+            Project project2 = new Project("Marketing Landing Page", "Lead Capture Landing for Marketing", "10/10/2020", "10/17/2020");
+            //project2.TeamMembers.Add(employeeList[2]);
 
+
+            List<Employee> marketers = new List<Employee>();
+
+            marketers.Add(employeeList[2]);
+
+            project2.TeamMembers = marketers;
+
+
+
+
+            projects.Add("Marketing Landing Page", project2);
         }
 
         /**
@@ -147,7 +182,16 @@ namespace TEams
         private void PrintProjectsReport()
         {
             Console.WriteLine("\n------------- PROJECTS ------------------------------");
-
+            foreach (string projectName in projects.Keys)
+            {
+                if (projects.ContainsKey(projectName)) 
+                {
+                    Console.WriteLine(projectName + ":" + projects.Values.Count);
+                }
+                
+                
+               
+            }
         }
     }
 }
